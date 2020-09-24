@@ -13099,7 +13099,10 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>intsert text here</p>
+<p>For our project, we will be analyzing a <a href="https://github.com/MuseumofModernArt/collection/blob/master/Artworks.csv">"dataset"</a> concerning the collection of the Museum of Modern Art (MoMA). In late 2019, MoMA underwent <a href="https://time.com/5688507/moma-reopening/">"renovations"</a> and reorganization of its galleries to feature more recent contemporary artists and global art. Our overarching question is exploring whether or not MoMA fulfilled its goal of expanding the diversity of its art collection. In order to see if this shift was reflected in their collection and acquisitions, we will attempt to measure the overall diversity a work adds to the collection by analyzing the relevant aspects of the artwork such as the artist's nationality, the artist’s gender, the year the work was created, the year it was acquired, and various other factors. Although it is impossible to truly quantify the abstract concept of diversity, we believe that analyzing overall patterns in acquisitions will be helpful in determining whether or not MoMA has been successful in its goal of introducing new viewpoints to its collection.</p>
+<p>For example, we will answer questions such as: is there an overwhelming number of male artists represented?; has MoMA recently been acquiring artwork from non-American at a higher frequency than in the past?; is the artwork acquired from non-American artists from Western European countries or elsewhere?; how does the average age of a work of art change in different time periods. By answering all of these smaller questions, we will be able to make a judgement on our overall  research question of assessing the diversity of the collection in recent years. We will also look at the trends over time to see if there are changes in what kind of artwork MoMA typically collects and note any differences between time periods. We have found a rich and detailed dataset with 138,219 works of art owned by MoMA acquired from 1929 to June of 2020, so we will have a lot of information pertaining to the type of artwork MoMA has acquired in different time periods.</p>
+<p>In addition to the thorough analysis we will conduct on MoMA dataset, we also plan to compare the MoMA’s collection to other large modern/contemporary art museums like the <a href="https://github.com/tategallery/collection">"Tate"</a>, a modern art museum in London. Through a comparison of the Tate and the MoMA we will be able to see if there are any differences in collections and trends between museums in two different countries. We will also investigate the collection of the <a href="https://github.com/metmuseum/openaccess">"Metropolitan Museum of Art"</a>,  another famous art museum in New York City. Even though the Met is not specifically focused on modern art, we will be able to key into its modern/contemporary art collection and only focus specifically on those works. By comparing the MoMA to these other museums we will be able to see if they not only reached their goals but if their goals place them as a forward thinker on modern art and not just a part of the crowd.</p>
+<p>In terms of collaboration, we have set up a <a href="https://github.com/lindsayhardy17/lindsayhardy17.github.io">"GitHub repository"</a>and plan for storing the datasets, sharing code, and version control. We plan to meet on Zoom once a week on Tuesdays at 3:10, right after class, and will also be flexible with adding a second time to meet on Thursday after class as well.  During these meetings we plan to check our progress, solve problems, and ask questions, in addition to communicating outside of scheduled meetings as needed.</p>
 
 </div>
 </div>
@@ -13111,9 +13114,17 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first thing that we needed to do was unzip our files. We originally tried to pull the data from the github repo, but the MoMA has a no pull policy. So instead we downloaded the data from kaggle.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13125,9 +13136,17 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For this first milestone the only things we needed were zipfile and pandas</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;archive.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
@@ -13139,49 +13158,41 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We unzipped the files and placed them in a working form in our folder</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">moma</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Artworks.csv&quot;</span><span class="p">)</span>
-<span class="n">columns</span> <span class="o">=</span> <span class="n">moma</span><span class="o">.</span><span class="n">columns</span>
-<span class="n">columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">moma_artworks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Artworks.csv&quot;</span><span class="p">)</span>
+<span class="n">moma_artists</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Artists.csv&quot;</span><span class="p">)</span>
+<span class="n">gender</span> <span class="o">=</span> <span class="n">moma_artists</span><span class="p">[[</span><span class="s2">&quot;Gender&quot;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Nationality&#39;</span><span class="p">]]</span>
+<span class="n">moma</span> <span class="o">=</span> <span class="n">moma_artworks</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">gender</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[41]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;Artwork ID&#39;, &#39;Title&#39;, &#39;Artist ID&#39;, &#39;Name&#39;, &#39;Date&#39;, &#39;Medium&#39;,
-       &#39;Dimensions&#39;, &#39;Acquisition Date&#39;, &#39;Credit&#39;, &#39;Catalogue&#39;, &#39;Department&#39;,
-       &#39;Classification&#39;, &#39;Object Number&#39;, &#39;Diameter (cm)&#39;,
-       &#39;Circumference (cm)&#39;, &#39;Height (cm)&#39;, &#39;Length (cm)&#39;, &#39;Width (cm)&#39;,
-       &#39;Depth (cm)&#39;, &#39;Weight (kg)&#39;, &#39;Duration (s)&#39;],
-      dtype=&#39;object&#39;)</pre>
 </div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Next we read in the Artworks file and the Artists file and created a new dataframe called gender. We will be analyzing the gender and nationaliyt of the artists so we wanted it in our main dataframe. Originally we tried to merge the two dataframes on 'Artist ID', but upon a closer look, "Artist ID" had multiple ids in the artworks dataframe but not in the artists dataframe. Some had up to 5 ids while others only had 1. Because of this we decided to just merge on "Name" because of its consistence across both dataframes. Once we merged we renamed the dataframe "moma"</p>
 
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">no_date</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[(</span><span class="n">moma</span><span class="p">[</span><span class="s1">&#39;Acquisition Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span>
@@ -13194,13 +13205,78 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the main things that we will be looking at is when the MoMA acquired the work of art. Without this knowledge we won't be able to see if they really changed following their addition. Because of this we removed works that did not have a date.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">moma</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="c1">#change the values into strings not objects</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[104]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Artwork ID              int64
+Title                  object
+Artist ID              object
+Name                   object
+Date                   object
+Medium                 object
+Dimensions             object
+Acquisition Date       object
+Credit                 object
+Catalogue              object
+Department             object
+Classification         object
+Object Number          object
+Diameter (cm)         float64
+Circumference (cm)    float64
+Height (cm)           float64
+Length (cm)           float64
+Width (cm)            float64
+Depth (cm)            float64
+Weight (kg)           float64
+Duration (s)          float64
+Gender                 object
+Nationality            object
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[100]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ids</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[[</span><span class="s1">&#39;Artwork ID&#39;</span><span class="p">,</span> <span class="s1">&#39;Artist ID&#39;</span><span class="p">]]</span>
-<span class="n">names_dates</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[[</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Acquisition Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Artist ID&#39;</span><span class="p">]]</span>
+<span class="n">names_dates</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[[</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Acquisition Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Artwork ID&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Nationality&#39;</span><span class="p">]]</span>
 <span class="n">dimensions</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[[</span><span class="s1">&#39;Artwork ID&#39;</span><span class="p">,</span><span class="s1">&#39;Dimensions&#39;</span><span class="p">,</span> <span class="s1">&#39;Diameter (cm)&#39;</span><span class="p">,</span>
        <span class="s1">&#39;Circumference (cm)&#39;</span><span class="p">,</span> <span class="s1">&#39;Height (cm)&#39;</span><span class="p">,</span> <span class="s1">&#39;Length (cm)&#39;</span><span class="p">,</span> <span class="s1">&#39;Width (cm)&#39;</span><span class="p">,</span>
        <span class="s1">&#39;Depth (cm)&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight (kg)&#39;</span><span class="p">,</span> <span class="s1">&#39;Duration (s)&#39;</span><span class="p">]]</span>
