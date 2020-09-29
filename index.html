@@ -13124,7 +13124,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[177]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13147,7 +13147,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[178]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;archive.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
@@ -13162,14 +13162,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next we read in the Artworks file and the Artists file and created a new dataframe called gender. We will be analyzing the gender and nationality of the artists so we wanted it in our main dataframe. Originally we tried to merge the two dataframes on 'Artist ID', but upon a closer look, "Artist ID" had multiple ids in the artworks dataframe but not in the artists dataframe. Some had up to 5 ids while others only had 1. Because of this we decided to just merge on "Name" because of its consistence across both dataframes. Once we merged we renamed the dataframe "moma"</p>
+<p>Next we read in the Artworks file and the Artists file and created a new dataframe called gender. We will be analyzing the gender and nationality of the artists so we wanted it in our main dataframe. Originally we tried to merge the two dataframes on 'Artist ID', but upon a closer look, "Artist ID" had multiple ids in the artworks dataframe but not in the artists dataframe. Some had up to 5 ids while others only had 1. Because of this we decided to just merge on "Name" because of its consistence across both dataframes. Once we merged we renamed the dataframe "moma". The resulting dataframe is made up of the works title, the artist and their background, the name of the work, information on the medium and different measurement types, when the moma acquired the work, and a couple other minor things. We are looking to analyze the dataframe to find insights on the dates that they were acquired with regard to when the works were made and if there were significant changes in the works acquired after a certain year. We think with this dataset we will be able to do all of these things because of the columns below, but will need to make sure that the columns are in the correct format.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[188]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">moma_artworks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Artworks.csv&quot;</span><span class="p">)</span>
@@ -13189,7 +13189,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[188]:</div>
+    <div class="prompt output_prompt">Out[39]:</div>
 
 
 
@@ -13378,7 +13378,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[189]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">moma</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
@@ -13434,7 +13434,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[189]:</div>
+    <div class="prompt output_prompt">Out[40]:</div>
 
 
 
@@ -13475,14 +13475,14 @@ dtype: object</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>While we were checking the different values we realized that the Date, the year the artword was created, had a lot of different problems and could not be analyzed because of its different date representations, like having 1967-1977, or c. 1989, or early 1992. Because of this we had to fix the Date column, which is shown below</p>
+<p>While we were checking the different values we realized that the Date, the year the artword was created, had a lot of different problems and could not be analyzed because of its different date representations, like having 1967-1977, or c. 1989, or early 1992. Because of this we had to fix the Date column, which is shown below. Having this column be correct is very important to us because the date of creation is crucial to our analysis.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[191]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">moma</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[:</span><span class="mi">100</span><span class="p">]</span>
@@ -13499,7 +13499,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[191]:</div>
+    <div class="prompt output_prompt">Out[41]:</div>
 
 
 
@@ -13531,7 +13531,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[181]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n_d</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[(</span><span class="n">moma</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;nan&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">moma</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;n.d&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">moma</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Unkn&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">moma</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Unknown&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">moma</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Various&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">moma</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;unknown&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span>
@@ -13553,7 +13553,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[182]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">moma</span><span class="p">[</span><span class="s1">&#39;date_edit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(\d</span><span class="si">{4}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">expand</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
@@ -13573,7 +13573,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[182]:</div>
+    <div class="prompt output_prompt">Out[43]:</div>
 
 
 
@@ -13603,11 +13603,11 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[183]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">moma</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[</span><span class="s1">&#39;date_edit&#39;</span><span class="p">]</span>
-<span class="n">moma</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date_edit&#39;</span><span class="p">])</span>
+<span class="n">moma</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date_edit&#39;</span><span class="p">],</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">moma</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="c1">#one last check to make sure that all of our corresponding values are actually dates</span>
 </pre></div>
@@ -13622,7 +13622,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[183]:</div>
+    <div class="prompt output_prompt">Out[44]:</div>
 
 
 
@@ -13672,12 +13672,12 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[184]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert the strings back to integers</span>
-<span class="n">moma_date</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">moma_date</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
-<span class="n">moma_date</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">moma_date</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">moma</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">moma</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+<span class="n">moma</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
 </pre></div>
 
     </div>
@@ -13695,7 +13695,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[185]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">no_date</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[(</span><span class="n">moma</span><span class="p">[</span><span class="s1">&#39;Acquisition Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span>
@@ -13718,7 +13718,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[186]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ids</span> <span class="o">=</span> <span class="n">moma</span><span class="p">[[</span><span class="s1">&#39;Artwork ID&#39;</span><span class="p">,</span> <span class="s1">&#39;Artist ID&#39;</span><span class="p">]]</span>
@@ -13737,10 +13737,207 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">moma</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[50]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Artwork ID</th>
+      <th>Title</th>
+      <th>Artist ID</th>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Medium</th>
+      <th>Dimensions</th>
+      <th>Acquisition Date</th>
+      <th>Credit</th>
+      <th>Catalogue</th>
+      <th>...</th>
+      <th>Diameter (cm)</th>
+      <th>Circumference (cm)</th>
+      <th>Height (cm)</th>
+      <th>Length (cm)</th>
+      <th>Width (cm)</th>
+      <th>Depth (cm)</th>
+      <th>Weight (kg)</th>
+      <th>Duration (s)</th>
+      <th>Gender</th>
+      <th>Nationality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>Ferdinandsbrücke Project, Vienna, Austria, Ele...</td>
+      <td>6210</td>
+      <td>Otto Wagner</td>
+      <td>1896.0</td>
+      <td>Ink and cut-and-pasted painted pages on paper</td>
+      <td>19 1/8 x 66 1/2" (48.6 x 168.9 cm)</td>
+      <td>1996-04-09</td>
+      <td>Fractional and promised gift of Jo Carole and ...</td>
+      <td>Y</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>48.6000</td>
+      <td>NaN</td>
+      <td>168.9000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Male</td>
+      <td>Austrian</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>City of Music, National Superior Conservatory ...</td>
+      <td>7470</td>
+      <td>Christian de Portzamparc</td>
+      <td>1987.0</td>
+      <td>Paint and colored pencil on print</td>
+      <td>16 x 11 3/4" (40.6 x 29.8 cm)</td>
+      <td>1995-01-17</td>
+      <td>Gift of the architect in honor of Lily Auchinc...</td>
+      <td>Y</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.6401</td>
+      <td>NaN</td>
+      <td>29.8451</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Male</td>
+      <td>French</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>Villa near Vienna Project, Outside Vienna, Aus...</td>
+      <td>7605</td>
+      <td>Emil Hoppe</td>
+      <td>1903.0</td>
+      <td>Graphite, pen, color pencil, ink, and gouache ...</td>
+      <td>13 1/2 x 12 1/2" (34.3 x 31.8 cm)</td>
+      <td>1997-01-15</td>
+      <td>Gift of Jo Carole and Ronald S. Lauder</td>
+      <td>Y</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.3000</td>
+      <td>NaN</td>
+      <td>31.8000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Male</td>
+      <td>Austrian</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>The Manhattan Transcripts Project, New York, N...</td>
+      <td>7056</td>
+      <td>Bernard Tschumi</td>
+      <td>1980.0</td>
+      <td>Photographic reproduction with colored synthet...</td>
+      <td>20 x 20" (50.8 x 50.8 cm)</td>
+      <td>1995-01-17</td>
+      <td>Purchase and partial gift of the architect in ...</td>
+      <td>Y</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>50.8000</td>
+      <td>NaN</td>
+      <td>50.8000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Male</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>Villa, project, outside Vienna, Austria, Exter...</td>
+      <td>7605</td>
+      <td>Emil Hoppe</td>
+      <td>1903.0</td>
+      <td>Graphite, color pencil, ink, and gouache on tr...</td>
+      <td>15 1/8 x 7 1/2" (38.4 x 19.1 cm)</td>
+      <td>1997-01-15</td>
+      <td>Gift of Jo Carole and Ronald S. Lauder</td>
+      <td>Y</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>38.4000</td>
+      <td>NaN</td>
+      <td>19.1000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Male</td>
+      <td>Austrian</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 23 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
